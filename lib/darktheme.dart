@@ -5,6 +5,32 @@ class Dummy extends StatefulWidget{
   State<Dummy> createState()=> _dummyState();
 }
 class _dummyState extends State<Dummy>{
+
+var userInput='';
+var answer='';
+
+final List<String> bottons=[
+  'AC',
+  '( )',
+  '%',
+  '/',
+  '1',
+  '2',
+  '3',
+  '*',
+  '4',
+  '5',
+  '6',
+  '-',
+  '7',
+  '8',
+  '9',
+  '+',
+  '.',
+  '0',
+  '='
+];
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -78,7 +104,11 @@ class _dummyState extends State<Dummy>{
               ),
             ),
           ),
-          Container(
+          GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+          itemBuilder: (context,index){
+            return Container();
+          })
+          /*Container(
             height: 520,
             width: 420,
             color:  const Color.fromRGBO(25, 18, 10, 1),
@@ -88,13 +118,31 @@ class _dummyState extends State<Dummy>{
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+
+                    // clear button
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
                       height: 80,
                       width: 85,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(backgroundColor: Color.fromRGBO(90, 141, 23, 1),foregroundColor: Colors.white),
-                        onPressed: (){}, child: Text("AC",style: TextStyle(fontSize: 28),),)
+                        onPressed: (){
+                          setState(() {
+                            userInput='';
+                            answer='0';
+                          });
+                        }, child: Text("AC",style: TextStyle(fontSize: 28),),)
+                    ),
+
+                    // bracket button
+                     Container(
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
+                      height: 80,
+                      width: 85,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 92, 76, 51),foregroundColor: Colors.white),
+                        onPressed: (){
+                        }, child: Text("( )",style: TextStyle(fontSize: 35),),),
                     ),
                      Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
@@ -102,15 +150,9 @@ class _dummyState extends State<Dummy>{
                       width: 85,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 92, 76, 51),foregroundColor: Colors.white),
-                        onPressed: (){}, child: Text("( )",style: TextStyle(fontSize: 35),),),
-                    ),
-                     Container(
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
-                      height: 80,
-                      width: 85,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 92, 76, 51),foregroundColor: Colors.white),
-                        onPressed: (){}, child: Text("%",style: TextStyle(fontSize: 35),),),
+                        onPressed: (){
+                          
+                        }, child: Text("%",style: TextStyle(fontSize: 35),),),
                     ),
                      Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
@@ -272,7 +314,7 @@ class _dummyState extends State<Dummy>{
                 ),
               ],
             ),
-          )
+          )*/
         ],
       ),
     );
